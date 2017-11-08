@@ -1,0 +1,25 @@
+﻿@model GestorEstudiantil.Models.Semestre
+
+@{
+    ViewData["Title"] = "Agregar";
+}
+
+<h2>Creación de semestre</h2>
+<p>Por favor ingrese los siguientes datos</p>
+
+<form asp-action="Agregar" method="post">
+    <h3>Datos</h3>
+    <div class="form-group">
+        <label>Número</label>
+        <input asp-for="SemestreId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        <input asp-for="NombreSemestre" class="form-control" />
+    </div>
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Guardar" />
+        <input class="btn btn-primary" type="button" value="Cancelar" />
+    </div>
+</form>
+

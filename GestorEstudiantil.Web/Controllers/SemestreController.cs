@@ -21,5 +21,10 @@ namespace GestorEstudiantil.Web.Controllers
             var list = this.SemestreRepository.Semestres.ToList();
             return View(list);
         }
+
+        public IActionResult Agregar()
+        {
+            return View();
+        }
     }
 }
