@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GestorEstudiantil.DataAccess;
+using GestorEstudiantil.Models;
 
 namespace GestorEstudiantil.Web.Controllers
 {
@@ -22,9 +23,23 @@ namespace GestorEstudiantil.Web.Controllers
             return View(list);
         }
 
+        [HttpGet]
         public IActionResult Agregar()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Agregar(Semestre semestre)
+        {
+            if (ModelState.IsValid)
+            {
+                if (this.SemestreRepository.Existe(semestre) == false)
+                {
+                    this.SemestreRepository.Guardar(semestre);
+                }
+            }
+            return RedirectToAction("Index");
         }
     }
 }
