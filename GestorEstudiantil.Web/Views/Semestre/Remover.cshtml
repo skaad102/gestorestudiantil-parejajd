@@ -1,0 +1,17 @@
+﻿@model GestorEstudiantil.Models.Semestre
+@{
+    ViewData["Title"] = "Remover";
+}
+<h2>¿Esta seguro que desea eliminar el semestre @Model.NombreSemestre ?</h2>
+
+<form asp-action="Remover" method="post">
+
+    <input asp-for="SemestreId" type="hidden" class="form-control" />
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Eliminar" />
+        <input class="btn btn-primary" type="button" value="Cancelar" />
+    </div>
+    <hr />
+</form>
+

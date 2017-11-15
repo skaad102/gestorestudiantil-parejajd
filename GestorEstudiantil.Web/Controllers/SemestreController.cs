@@ -41,5 +41,51 @@ namespace GestorEstudiantil.Web.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            //Consultamos el objeto
+            var semestre = this.SemestreRepository.Semestres.FirstOrDefault(x => x.SemestreId == id);
+
+            //Retornamos la vista
+            return View(semestre);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Semestre semestre)
+        {
+            bool guardado = this.SemestreRepository.Update(semestre.SemestreId, semestre);
+
+            if (guardado)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(semestre);
+        }
+
+
+        [HttpGet]
+        public IActionResult Remover(int id)
+        {
+            //Consultamos el objeto
+            var semestre = this.SemestreRepository.Semestres.FirstOrDefault(x => x.SemestreId == id);
+
+            //Retornamos la vista
+            return View(semestre);
+        }
+
+        [HttpPost]
+        public IActionResult Remover(Semestre semestre)
+        {
+            bool guardado = this.SemestreRepository.Delete(semestre.SemestreId);
+
+            if (guardado)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(semestre);
+        }
+
     }
 }

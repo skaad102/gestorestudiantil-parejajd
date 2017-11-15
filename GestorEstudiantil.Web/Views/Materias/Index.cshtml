@@ -1,0 +1,35 @@
+﻿@model List<GestorEstudiantil.Models.Materia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h2>Listado de materias</h2>
+
+<a asp-action="Agregar">Crear nueva materia</a>
+
+<br /><br />
+
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Nombre </td>
+        <td>Semestres asociados</td>
+        <td>Acciones</td>
+    </tr>
+    @foreach (var materia in Model)
+    {
+        <tr>
+            <td>@materia.MateriaId</td>
+            <td>@materia.NombreMateria</td>
+            <td>@(materia.Materias != null ? materia.Materias.Count : 0)</td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@materia.MateriaId">Editar</a> |
+                <a asp-action="VerDetalles" asp-route-id="@materia.MateriaId">Ver detalles</a> |
+                <a asp-action="Remover" asp-route-id="@materia.MateriaId">Borrar</a>
+            </td>
+        </tr>
+    }
+</table>
+

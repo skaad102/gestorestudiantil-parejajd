@@ -1,0 +1,26 @@
+﻿@model GestorEstudiantil.Models.Semestre
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2>Modificación de semestre</h2>
+<p>Por favor ingrese los siguientes datos</p>
+
+<form asp-action="Editar" method="post">
+    <h3>Datos</h3>
+    <div class="form-group">
+        <label>Número</label>
+        <input asp-for="SemestreId" readonly class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        <input asp-for="NombreSemestre" class="form-control" />
+    </div>
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Modificar" />
+        <input class="btn btn-primary" type="button" value="Cancelar" />
+    </div>
+    <hr />
+</form>
+

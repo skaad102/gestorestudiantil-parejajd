@@ -1,0 +1,25 @@
+﻿@model GestorEstudiantil.Models.Materia
+
+@{
+    ViewData["Title"] = "Agregar";
+}
+
+<h2>Creación de semestre</h2>
+<p>Por favor ingrese los siguientes datos</p>
+
+<form asp-action="Agregar" method="post">
+    <h3>Datos</h3>
+    <div class="form-group">
+        <label>Id</label>
+        <input asp-for="MateriaId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Nombre de la materia</label>
+        <input asp-for="NombreMateria" class="form-control" />
+    </div>
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Guardar" />
+        <input class="btn btn-primary" type="button" value="Cancelar" />
+    </div>
+    <hr />
+</form>
